@@ -24,10 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Set canvas size
+    // Set canvas size and cache stable viewport height
+    let cachedViewportHeight = window.innerHeight;
     const resizeCanvas = () => {
         raysCanvas.width = window.innerWidth;
         raysCanvas.height = window.innerHeight;
+        cachedViewportHeight = window.innerHeight;
     };
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
@@ -196,7 +198,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const handleScroll = () => {
         const scrollY = window.scrollY;
-        const viewportHeight = window.innerHeight;
+        // Use cached height to prevent mobile browser URL bar from causing scroll jumps
+        const viewportHeight = cachedViewportHeight;
         
         // --- Phase 1: Hero to Magic (0 to 1vh) ---
         let progress1 = 0;

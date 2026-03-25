@@ -1114,7 +1114,7 @@ body::after {
     .contact-details-overlay {
         width: 85%;
         left: 50%;
-        top: 85%; 
+        top: 72%; /* Adjusted up to guarantee visibility above browser bars */
     }
 
     .contact-info {
@@ -1134,11 +1134,14 @@ body::after {
 
 .contact-section {
     width: 100%;
-    height: 100vh; /* Fallback */
-    height: 100dvh; /* Dynamic viewport height guarantees visibility regardless of mobile browser UI bars */
+    height: 100vh;
+    height: 100dvh;
+    min-height: 100vh;
     position: relative;
     overflow: hidden;
     background-color: #000;
+    /* Extra padding so mobile UI doesn't clip the bottom */
+    padding-bottom: env(safe-area-inset-bottom, 20px);
 }
 
 #contact-video-bg {
