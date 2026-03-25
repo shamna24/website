@@ -1112,23 +1112,24 @@ body::after {
 
     /* Contact Section Adjustments */
     .contact-details-overlay {
-        width: 85%;
+        width: 95%;
         left: 50%;
-        top: 72%; /* Adjusted up to guarantee visibility above browser bars */
+        top: 75%; /* Lower slightly since text is less vertically stretched */
     }
 
     .contact-info {
-        gap: 0.8rem;
+        gap: 0.5rem;
     }
 
     .contact-item {
-        font-size: 0.75rem;
-        letter-spacing: 0.25rem;
+        font-size: 0.6rem;
+        letter-spacing: 0.15rem;
     }
 
     .contact-item.address {
-        font-size: 0.85rem;
-        letter-spacing: 0.35rem;
+        font-size: 0.7rem;
+        letter-spacing: 0.15rem;
+        padding: 0 10px;
     }
 }
 
@@ -1147,8 +1148,11 @@ body::after {
 #contact-video-bg {
     width: 100%;
     height: 100%;
-    object-position: center bottom;
+    position: absolute;
+    top: 0;
+    left: 0;
     object-fit: cover;
+    object-position: center bottom;
     pointer-events: none;
     opacity: 0;
     transition: opacity 2s ease;
