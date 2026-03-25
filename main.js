@@ -59,6 +59,15 @@ document.addEventListener('DOMContentLoaded', () => {
             startRayAnimation();
         }, 800);
 
+        // Pre-warm video for mobile scroll animation
+        const contactVideo = document.getElementById('contact-video-bg');
+        if (contactVideo) {
+            contactVideo.play().then(() => {
+                contactVideo.pause();
+                contactVideo.currentTime = 0;
+            }).catch(e => console.log('Video pre-warm failed:', e));
+        }
+
         // 5. Reveal Navigation after Logo
         setTimeout(() => {
             mainNav.classList.add('visible');
@@ -301,11 +310,13 @@ document.addEventListener('DOMContentLoaded', () => {
             let progress4 = Math.min(1, easeInOutCubic(p4) * 1.05); // Slight boost to hit 1.0 safely
 
             contactSection.classList.add('active');
-            if (contactVideo && contactVideo.duration) {
-                contactVideo.currentTime = contactVideo.duration * progress4;
+            if (contactVideo && contactVideo.readyState >= 1) {
+                try {
+                    contactVideo.currentTime = contactVideo.duration * progress4;
+                } catch(e) {}
             }
             if (contactDetails) {
-                contactDetails.style.opacity = progress4 > 0.99 ? 1 : 0;
+                contactDetails.style.opacity = progress4 > 0.95 ? 1 : 0;
             }
             workspaceBg.style.opacity = Math.max(0, 1 - (progress4 * 2));
         } else {
