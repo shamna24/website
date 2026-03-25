@@ -62,19 +62,20 @@ body::after {
 
 .hero-section {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
+    padding-top: 5vh; /* Safe spacing to prevent clipping top items */
 }
 
 /* Magic Section */
 .magic-section {
     width: 100%;
-    height: 100vh; /* Strictly 100vh for fast compact experience */    position: relative;
-    overflow: hidden;
+    min-height: 100vh;
+    position: relative;
     background-color: #000;
 }
 
@@ -133,8 +134,8 @@ body::after {
 /* Playground Section */
 .playground-section {
     width: 100%;
-    height: 100vh; /* Strictly 100vh */    position: relative;
-    overflow: hidden;
+    min-height: 100vh;
+    position: relative;
     background-color: #050505;
 }
 
@@ -550,9 +551,8 @@ body::after {
 /* Workspace Section */
 .workspace-section {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
-    overflow: hidden;
     background-color: var(--workspace-bg);
 }
 
@@ -581,8 +581,8 @@ body::after {
 
 .stationary-desk-lamp {
     position: absolute;
-    bottom: calc(22vh - 36px); /* 22vh table top minus the 8% padding in the 500x500 viewBox */
-    right: 5vw;
+    bottom: calc(22vh - 36px);
+    right: 1vw;
     width: 450px;
     height: 450px;
     z-index: 5;
@@ -1135,11 +1135,9 @@ body::after {
 
 .contact-section {
     width: 100%;
-    height: 100vh;
-    height: 100dvh;
     min-height: 100vh;
+    min-height: 100dvh;
     position: relative;
-    overflow: hidden;
     background-color: #000;
     /* Extra padding so mobile UI doesn't clip the bottom */
     padding-bottom: env(safe-area-inset-bottom, 20px);

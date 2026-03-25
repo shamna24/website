@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // --- Responsive Settings ---
         const isMobile = window.innerWidth <= 768;
-        const targetTop = 0; // The bulb will hang flush from the very top ceiling of the Playground page
+        const targetTop = isMobile ? 50 : 30; // The bulb will hang safely away from the top boundary
 
         // --- Phase 2: Magic to Playground (1vh to 2vh) ---
         if (scrollY >= viewportHeight && scrollY < viewportHeight * 2.5) {
@@ -332,15 +332,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Smooth Navigation Logic ---
     const scrollToSection = (targetIndex) => {
-        const viewportHeight = window.innerHeight;
         let targetScroll = 0;
 
         switch(parseInt(targetIndex)) {
             case 0: targetScroll = 0; break; 
-            case 1: targetScroll = viewportHeight * 1.0; break; 
-            case 2: targetScroll = viewportHeight * 2.0; break; 
-            case 3: targetScroll = viewportHeight * 3.0; break; 
-            // Ensures it hits absolute bottom perfectly
+            case 1: targetScroll = document.getElementById('behind-the-magic').offsetTop; break; 
+            case 2: targetScroll = document.getElementById('our-playground').offsetTop; break; 
+            case 3: targetScroll = document.getElementById('made-with-magic').offsetTop; break; 
             case 4: targetScroll = document.documentElement.scrollHeight; break; 
         }
 
