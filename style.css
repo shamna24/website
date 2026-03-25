@@ -995,6 +995,235 @@ body::after {
     opacity: 0.15;
 }
 
+/* ============================
+   VINTAGE PARCHMENT SCROLL
+   ============================ */
+
+.magic-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Warm Candle Glow behind the scroll */
+.scroll-candle-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 180, 60, 0.12) 0%, rgba(255, 150, 30, 0.05) 40%, transparent 70%);
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+}
+
+/* Scroll Wrapper */
+.parchment-scroll-wrapper {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 380px;
+    max-width: 90vw;
+    /* Float effect */
+    filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.8));
+}
+
+/* Top and Bottom Rolls */
+.scroll-roll {
+    width: 110%;
+    height: 40px;
+    background: linear-gradient(180deg, #8b7355 0%, #6b5638 30%, #a0895c 50%, #6b5638 70%, #5a472e 100%);
+    border-radius: 20px;
+    position: relative;
+    z-index: 10;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.6),
+        inset 0 2px 4px rgba(255, 255, 255, 0.15),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.scroll-roll::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 8px;
+    right: 8px;
+    height: 6px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+    border-radius: 50%;
+}
+
+.scroll-roll-top {
+    margin-bottom: -4px;
+}
+
+.scroll-roll-bottom {
+    margin-top: -4px;
+}
+
+.roll-shadow {
+    position: absolute;
+    bottom: -8px;
+    left: 10%;
+    width: 80%;
+    height: 16px;
+    background: rgba(0, 0, 0, 0.5);
+    filter: blur(8px);
+    border-radius: 50%;
+}
+
+.scroll-roll-top .roll-shadow {
+    bottom: auto;
+    top: -4px;
+}
+
+/* Parchment Body */
+.parchment-body {
+    width: 100%;
+    position: relative;
+    background: linear-gradient(
+        135deg,
+        #f5e6c8 0%,
+        #e8d5a8 15%,
+        #f2e0b6 30%,
+        #dcc89a 50%,
+        #f0ddb0 70%,
+        #e5d1a0 85%,
+        #f5e6c8 100%
+    );
+    padding: 50px 40px;
+    overflow: hidden;
+    /* Start collapsed for unroll animation */
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.8s ease;
+}
+
+.parchment-body.unrolled {
+    max-height: 600px;
+    opacity: 1;
+}
+
+/* Aged Paper Texture Overlay */
+.parchment-texture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        url('https://www.transparenttextures.com/patterns/old-map.png'),
+        radial-gradient(ellipse at 30% 20%, rgba(139, 90, 43, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 80%, rgba(139, 90, 43, 0.06) 0%, transparent 50%);
+    background-size: 200px, cover, cover;
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Burnt Edges */
+.burnt-edge {
+    position: absolute;
+    top: 0;
+    width: 30px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.burnt-edge-left {
+    left: 0;
+    background: linear-gradient(90deg, rgba(101, 67, 33, 0.35) 0%, rgba(139, 90, 43, 0.1) 40%, transparent 100%);
+}
+
+.burnt-edge-right {
+    right: 0;
+    background: linear-gradient(-90deg, rgba(101, 67, 33, 0.35) 0%, rgba(139, 90, 43, 0.1) 40%, transparent 100%);
+}
+
+/* Ink Content */
+.scroll-ink-content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+}
+
+/* Ink Typography */
+.ink-line {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    color: #3a2a1a;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    text-shadow: 0 1px 2px rgba(58, 42, 26, 0.15);
+    /* Slight ink-bleed effect */
+    -webkit-text-stroke: 0.2px rgba(58, 42, 26, 0.3);
+}
+
+.ink-line.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.ink-line-1, .ink-line-10 {
+    font-size: 1.4rem;
+    color: #5a3a1a;
+}
+
+.scroll-ink-content h2.ink-line-2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.4rem;
+    letter-spacing: 0.8rem;
+    font-weight: 700;
+    color: #2a1a08;
+    margin: 4px 0;
+}
+
+.ink-line-4 {
+    font-style: italic;
+    font-size: 0.85rem;
+    letter-spacing: 0.25rem;
+    color: #6b4f30;
+}
+
+.ink-line-5, .ink-line-6, .ink-line-7 {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #4a3520;
+    font-style: italic;
+}
+
+.ink-line-9 {
+    font-size: 0.8rem;
+    letter-spacing: 0.35rem;
+    text-transform: uppercase;
+    color: #5a3a1a;
+    font-weight: 400;
+}
+
+/* Ink Divider Lines */
+.ink-divider {
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #8b6b43, transparent);
+    margin: 6px 0;
+}
+
+/* Soft Vignette on the entire section */
+.magic-section::after {
+    background: radial-gradient(circle, transparent 30%, rgba(0,0,0,0.85) 100%);
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .header-nav {
@@ -1130,6 +1359,42 @@ body::after {
         font-size: 0.7rem;
         letter-spacing: 0.15rem;
         padding: 0 10px;
+    }
+
+    /* Parchment Scroll Mobile */
+    .parchment-scroll-wrapper {
+        width: 85vw;
+    }
+
+    .scroll-roll {
+        height: 30px;
+    }
+
+    .parchment-body {
+        padding: 30px 24px;
+    }
+
+    .scroll-ink-content h2.ink-line-2 {
+        font-size: 1.6rem;
+        letter-spacing: 0.4rem;
+    }
+
+    .ink-line-5, .ink-line-6, .ink-line-7 {
+        font-size: 0.8rem;
+    }
+
+    .ink-line-4 {
+        font-size: 0.75rem;
+    }
+
+    .ink-line-9 {
+        font-size: 0.7rem;
+        letter-spacing: 0.2rem;
+    }
+
+    .scroll-candle-glow {
+        width: 350px;
+        height: 350px;
     }
 }
 

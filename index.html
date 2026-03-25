@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="landing-container">
@@ -93,10 +93,43 @@
         <!-- Behind the Magic Section -->
         <section id="behind-the-magic" class="magic-section">
             <div class="wall-texture"></div>
-            <div class="section-content">
-                <!-- Content will be added later by user -->
-                <div class="content-placeholder"></div>
+            
+            <!-- Warm Candle Glow -->
+            <div class="scroll-candle-glow"></div>
+
+            <!-- Vintage Parchment Scroll -->
+            <div class="parchment-scroll-wrapper">
+                <!-- Top Roll -->
+                <div class="scroll-roll scroll-roll-top">
+                    <div class="roll-shadow"></div>
+                </div>
+
+                <!-- Parchment Body (clips to reveal via scaleY) -->
+                <div class="parchment-body" id="parchment-body">
+                    <div class="parchment-texture"></div>
+                    <div class="burnt-edge burnt-edge-left"></div>
+                    <div class="burnt-edge burnt-edge-right"></div>
+
+                    <div class="scroll-ink-content">
+                        <p class="ink-line ink-line-1">✦</p>
+                        <h2 class="ink-line ink-line-2">AURORA</h2>
+                        <div class="ink-divider ink-line ink-line-3"></div>
+                        <p class="ink-line ink-line-4">Est. MMXXIV</p>
+                        <p class="ink-line ink-line-5">We are the architects of light,</p>
+                        <p class="ink-line ink-line-6">crafting immersive digital experiences</p>
+                        <p class="ink-line ink-line-7">that illuminate brands and captivate souls.</p>
+                        <div class="ink-divider ink-line ink-line-8"></div>
+                        <p class="ink-line ink-line-9">Performance · Strategy · Vision</p>
+                        <p class="ink-line ink-line-10">✦</p>
+                    </div>
+                </div>
+
+                <!-- Bottom Roll -->
+                <div class="scroll-roll scroll-roll-bottom">
+                    <div class="roll-shadow"></div>
+                </div>
             </div>
+
             <!-- Dynamic Wall Glow (Controlled by Scroll) -->
             <div id="wall-glow" class="wall-glow"></div>
         </section>

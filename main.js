@@ -228,6 +228,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         } 
+
+        // --- Parchment Scroll Animation (tied to Phase 1 progress) ---
+        const parchmentBody = document.getElementById('parchment-body');
+        const candleGlow = document.querySelector('.scroll-candle-glow');
+        const inkLines = document.querySelectorAll('.ink-line');
+
+        if (parchmentBody) {
+            const scrollP = Math.min(Math.max(scrollY / viewportHeight, 0), 1);
+            
+            // Unroll the parchment when user has scrolled 30% into Phase 1
+            if (scrollP > 0.3) {
+                parchmentBody.classList.add('unrolled');
+                if (candleGlow) candleGlow.style.opacity = '1';
+            } else {
+                parchmentBody.classList.remove('unrolled');
+                if (candleGlow) candleGlow.style.opacity = '0';
+            }
+
+            // Staggered ink line reveal (each line appears at progressively later scroll points)
+            const totalLines = inkLines.length;
+            inkLines.forEach((line, index) => {
+                // Each line reveals between 0.35 and 0.85 scroll progress
+                const lineThreshold = 0.35 + (index / totalLines) * 0.5;
+                if (scrollP > lineThreshold) {
+                    line.classList.add('revealed');
+                } else {
+                    line.classList.remove('revealed');
+                }
+            });
+        }
         
         // --- Responsive Settings ---
         const isMobile = window.innerWidth <= 768;
