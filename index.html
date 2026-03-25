@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUX - Minimal Excellence</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="landing-container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <header class="header-nav">
+                <nav id="main-nav" class="desktop-nav">
+                    <a href="#" class="nav-item" data-target="0">Creative Entry</a>
+                    <a href="#" class="nav-item" data-target="1">Behind the Magic</a>
+                    <a href="#" class="nav-item" data-target="2">Our Playground</a>
+                    <a href="#" class="nav-item" data-target="3">Made with Magic</a>
+                    <a href="#" class="nav-item" data-target="4">Knock on Our Door</a>
+                </nav>
+                <div id="hamburger" class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </header>
+
+            <!-- Mobile Side Menu -->
+            <div id="mobile-menu" class="mobile-menu">
+                <div class="mobile-nav-links">
+                    <a href="#" class="mobile-nav-item" data-target="0">Creative Entry</a>
+                    <a href="#" class="mobile-nav-item" data-target="1">Behind the Magic</a>
+                    <a href="#" class="mobile-nav-item" data-target="2">Our Playground</a>
+                    <a href="#" class="mobile-nav-item" data-target="3">Made with Magic</a>
+                    <a href="#" class="mobile-nav-item" data-target="4">Knock on Our Door</a>
+                </div>
+            </div>
+
+            <!-- Hanging Light Bulb Container (Shared for Hero) -->
+            <div id="transforming-bulb-container" class="bulb-wrapper">
+                <div class="wire-container">
+                    <div class="wire"></div>
+                </div>
+                <!-- Wall Mount Holder (Initially Hidden) -->
+                <div class="wall-mount-base">
+                    <svg viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 10 Q20 10 20 30 T40 50" fill="none" stroke="#222" stroke-width="4" />
+                        <rect x="0" y="5" width="8" height="50" rx="2" fill="#111" />
+                    </svg>
+                </div>
+
+                <div id="light-bulb" class="bulb off">
+                    <svg viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <radialGradient id="bulb-glow" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#fff5d7" />
+                                <stop offset="100%" stop-color="#ffcc33" stop-opacity="0" />
+                            </radialGradient>
+                            <filter id="wall-light-filter">
+                                <feGaussianBlur in="SourceGraphic" stdDeviation="15" />
+                            </filter>
+                        </defs>
+                        <!-- Metal Base -->
+                        <path class="bulb-part" d="M35 20 L65 20 L62 45 L38 45 Z" fill="#333" />
+                        <rect class="bulb-part" x="34" y="10" width="32" height="10" fill="#222" />
+                        <!-- Glass Bulb -->
+                        <path class="bulb-glass bulb-part" d="M50 45 C30 45 15 65 15 85 C15 110 35 130 50 130 C65 130 85 110 85 85 C85 65 70 45 50 45 Z" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+                        <!-- Filament -->
+                        <path class="filament bulb-part" d="M40 70 Q50 60 60 70 T40 85 T60 100" fill="none" stroke="#444" stroke-width="1.5" />
+                        <!-- Layered Glow Elements -->
+                        <circle class="glow-circle outer" cx="50" cy="85" r="50" fill="url(#mid-glow-grad)" opacity="0" />
+                        <circle class="glow-circle mid" cx="50" cy="85" r="40" fill="url(#mid-glow-grad)" opacity="0" />
+                        <circle class="glow-circle inner" cx="50" cy="85" r="25" fill="url(#inner-glow-grad)" opacity="0" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Center Brand Reveal -->
+            <div id="brand-reveal" class="brand-reveal">
+                <h1 class="brand-logo">AURORA</h1>
+                <p class="brand-tagline">ILLUMINATING LUXURY</p>
+            </div>
+
+            <!-- Interactive Button -->
+            <div class="controls">
+                <button id="toggle-btn" class="luxury-btn">ILLUMINATE</button>
+            </div>
+        </section>
+
+        <!-- Behind the Magic Section -->
+        <section id="behind-the-magic" class="magic-section">
+            <div class="wall-texture"></div>
+            <div class="section-content">
+                <!-- Content will be added later by user -->
+                <div class="content-placeholder"></div>
+            </div>
+            <!-- Dynamic Wall Glow (Controlled by Scroll) -->
+            <div id="wall-glow" class="wall-glow"></div>
+        </section>
+
+        <!-- Our Playground Section -->
+        <section id="our-playground" class="playground-section">
+            <div class="playground-bg"></div>
+            <div class="playground-container">
+                <div class="cupboard-grid">
+                    <!-- Cupboard 1: Performance Marketing -->
+                    <div class="cupboard" id="service-1">
+                        <div class="cupboard-interior">
+                            <span class="service-name">Performance Marketing</span>
+                            <div class="inner-light"></div>
+                        </div>
+                        <div class="cupboard-door">
+                            <div class="handle"></div>
+                        </div>
+                    </div>
+                    <!-- Cupboard 2: SEO -->
+                    <div class="cupboard" id="service-2">
+                        <div class="cupboard-interior">
+                            <span class="service-name">SEO</span>
+                            <div class="inner-light"></div>
+                        </div>
+                        <div class="cupboard-door">
+                            <div class="handle"></div>
+                        </div>
+                    </div>
+                    <!-- Cupboard 3: SEM -->
+                    <div class="cupboard" id="service-3">
+                        <div class="cupboard-interior">
+                            <span class="service-name">SEM</span>
+                            <div class="inner-light"></div>
+                        </div>
+                        <div class="cupboard-door">
+                            <div class="handle"></div>
+                        </div>
+                    </div>
+                    <!-- Cupboard 4: SMM -->
+                    <div class="cupboard" id="service-4">
+                        <div class="cupboard-interior">
+                            <span class="service-name">SMM</span>
+                            <div class="inner-light"></div>
+                        </div>
+                        <div class="cupboard-door">
+                            <div class="handle"></div>
+                        </div>
+                    </div>
+                    <!-- Cupboard 5: Video Production -->
+                    <div class="cupboard" id="service-5">
+                        <div class="cupboard-interior">
+                            <span class="service-name">Video Production</span>
+                            <div class="inner-light"></div>
+                        </div>
+                        <div class="cupboard-door">
+                            <div class="handle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Made with Magic Section -->
+        <section id="made-with-magic" class="workspace-section">
+            <div class="workspace-bg"></div>
+            
+            <!-- Stationary Articulated Desk Lamp (Right Side) -->
+            <div class="stationary-desk-lamp">
+                <svg viewBox="0 0 500 500" class="desk-lamp-svg">
+                    <defs>
+                        <linearGradient id="metal-dark" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#333" />
+                            <stop offset="50%" stop-color="#1a1a1a" />
+                            <stop offset="100%" stop-color="#050505" />
+                        </linearGradient>
+                        <linearGradient id="metal-light" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#444" />
+                            <stop offset="50%" stop-color="#666" />
+                            <stop offset="100%" stop-color="#222" />
+                        </linearGradient>
+                        <linearGradient id="diagonal-beam" x1="80%" y1="20%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="rgba(255, 204, 51, 0.45)" />
+                            <stop offset="40%" stop-color="rgba(255, 204, 51, 0.15)" />
+                            <stop offset="100%" stop-color="rgba(255, 204, 51, 0)" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- SVG Geometry uses fully nested Groups to guarantee physically connected joints -->
+                    
+                    <!-- Base Shadow -->
+                    <ellipse cx="350" cy="460" rx="85" ry="14" fill="rgba(0,0,0,0.8)" filter="blur(10px)" />
+                    <ellipse cx="350" cy="460" rx="55" ry="6" fill="rgba(0,0,0,0.9)" filter="blur(4px)" />
+                    
+                    <!-- Solid Matte Base -->
+                    <path d="M270 448 Q350 435 430 448 L425 460 Q350 465 275 460 Z" fill="url(#metal-dark)" />
+                    <ellipse cx="350" cy="448" rx="80" ry="18" fill="url(#metal-light)" />
+                    
+                    <!-- Main Base Swivel Joint -->
+                    <path d="M338 448 L362 448 L358 420 L342 420 Z" fill="#111" />
+                    <circle cx="350" cy="420" r="16" fill="#050505" stroke="#333" stroke-width="2" />
+
+                    <!-- Lower Arm Group -->
+                    <g transform="translate(350, 420) rotate(22)">
+                        <!-- Arm extending UP to (0, -180) -->
+                        <rect x="-7" y="-180" width="14" height="180" fill="url(#metal-dark)" rx="4" />
+                        
+                        <!-- Middle Joint -->
+                        <circle cx="0" cy="-180" r="18" fill="#111" stroke="#444" stroke-width="2" />
+                        <circle cx="0" cy="-180" r="6" fill="#222" /> <!-- Hinge pin -->
+
+                        <!-- Upper Arm Group -->
+                        <g transform="translate(0, -180) rotate(-65)">
+                            <!-- Arm extending UP to (0, -180) -->
+                            <rect x="-6" y="-180" width="12" height="180" fill="url(#metal-dark)" rx="3" />
+                            
+                            <!-- Top Joint -->
+                            <circle cx="0" cy="-180" r="15" fill="#111" stroke="#444" stroke-width="2" />
+                            <circle cx="0" cy="-180" r="5" fill="#222" /> <!-- Hinge pin -->
+
+                            <!-- Lampshade Group -->
+                            <!-- Rotated so it points down-left relative to arm -->
+                            <g transform="translate(0, -180) rotate(110)">
+                                <!-- Connector extending DOWN to (0, 25) -->
+                                <rect x="-5" y="0" width="10" height="25" fill="url(#metal-light)" rx="2" />
+                                
+                                <!-- Light Cone from Shade Base (0, 120) -->
+                                <polygon points="-65,115 65,115 450,750 -450,750" fill="url(#diagonal-beam)" class="desk-light-beam" filter="blur(20px)" />
+
+                                <!-- Sleek Lampshade -->
+                                <path d="M-25 25 L25 25 L65 120 L-65 120 Z" fill="url(#metal-dark)" />
+                                <path d="M-25 25 Q0 10 25 25 L15 5 Q0 0 -15 5 Z" fill="url(#metal-light)" />
+                                
+                                <!-- Inner Reflector & Glow -->
+                                <ellipse cx="0" cy="120" rx="65" ry="16" fill="#0a0a0a" />
+                                <ellipse cx="0" cy="120" rx="55" ry="12" fill="#ffcc33" class="desk-inner-glow" filter="blur(5px)" />
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+
+            <div class="desk-surface">
+                <div class="surface-reflection"></div>
+            </div>
+            <div class="section-content center-content">
+                <div class="premium-tablet-device">
+                    <div class="tablet-bezel">
+                        <div class="tablet-screen">
+                            <!-- Screen Glare overlay -->
+                            <div class="screen-glare"></div>
+                            
+                            <!-- iOS/Android style status bar -->
+                            <div class="status-bar">
+                                <span class="time">10:45 AM</span>
+                                <div class="status-icons">
+                                    <!-- WiFi Icon -->
+                                    <svg class="wifi-icon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                                        <path d="M12 21L15.6 16.2C14.6 15.4 13.4 15 12 15C10.6 15 9.4 15.4 8.4 16.2L12 21ZM12 11C9.3 11 6.8 12 4.8 13.6L7.2 16.8C8.5 15.7 10.2 15 12 15C13.8 15 15.5 15.7 16.8 16.8L19.2 13.6C17.2 12 14.7 11 12 11ZM12 7C8.1 7 4.5 8.4 1.6 10.8L4 14C6.2 12.2 9 11 12 11C15 11 17.8 12.2 20 14L22.4 10.8C19.5 8.4 15.9 7 12 7Z"/>
+                                    </svg>
+                                    <!-- Battery Icon -->
+                                    <svg class="battery-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="transform: rotate(90deg);">
+                                        <path d="M17 6H3C1.9 6 1 6.9 1 8V16C1 17.1 1.9 18 3 18H17C18.1 18 19 17.1 19 16V8C19 6.9 18.1 6 17 6ZM17 16H3V8H17V16ZM21 9V15H23V9H21ZM15 10H5V14H15V10Z"/>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="client-work-view-port">
+                                <div class="client-work-track">
+                                    <!-- App Card 1 -->
+                                    <div class="client-card app-card">
+                                        <div class="app-icon light-blue">✧</div>
+                                        <div class="app-details">
+                                            <h3>Lumina Concept</h3>
+                                            <p>Brand Identity & 3D Web</p>
+                                        </div>
+                                        <div class="app-arrow">→</div>
+                                    </div>
+                                    <!-- App Card 2 -->
+                                    <div class="client-card app-card">
+                                        <div class="app-icon deep-purple">✦</div>
+                                        <div class="app-details">
+                                            <h3>Aether Flow</h3>
+                                            <p>Immersive Digital Exp</p>
+                                        </div>
+                                        <div class="app-arrow">→</div>
+                                    </div>
+                                    <!-- App Card 3 -->
+                                    <div class="client-card app-card">
+                                        <div class="app-icon warm-gold">⟡</div>
+                                        <div class="app-details">
+                                            <h3>Onyx Studio</h3>
+                                            <p>E-Commerce Luxury</p>
+                                        </div>
+                                        <div class="app-arrow">→</div>
+                                    </div>
+                                    
+                                    <!-- Duplicates for Infinite Scroll Loop -->
+                                    <div class="client-card app-card">
+                                        <div class="app-icon light-blue">✧</div>
+                                        <div class="app-details">
+                                            <h3>Lumina Concept</h3>
+                                            <p>Brand Identity & 3D Web</p>
+                                        </div>
+                                        <div class="app-arrow">→</div>
+                                    </div>
+                                    <div class="client-card app-card">
+                                        <div class="app-icon deep-purple">✦</div>
+                                        <div class="app-details">
+                                            <h3>Aether Flow</h3>
+                                            <p>Immersive Digital Exp</p>
+                                        </div>
+                                        <div class="app-arrow">→</div>
+                                    </div>
+                                    <div class="client-card app-card">
+                                        <div class="app-icon warm-gold">⟡</div>
+                                        <div class="app-details">
+                                            <h3>Onyx Studio</h3>
+                                            <p>E-Commerce Luxury</p>
+                                        </div>
+                                        <div class="app-arrow">→</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Knock Our Door Section -->
+        <section id="knock-our-door" class="contact-section">
+            <video id="contact-video-bg" loop muted playsinline>
+                <source src="file:///C:/Users/shamn/Downloads/Video Project.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-overlay"></div>
+            
+            <!-- Contact Details Text Overlay -->
+            <div class="contact-details-overlay">
+                <div class="contact-info">
+                    <p class="contact-item address">123 Cinematic Avenue, Studio Building, LA</p>
+                    <p class="contact-item phone">+1 (555) 123-4567</p>
+                    <p class="contact-item email">hello@lux-excellence.com</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Cinematic Background Elements -->
+    <canvas id="rays-canvas"></canvas>
+    
+    <!-- Bulb Gradients -->
+    <svg style="width:0;height:0;position:absolute;">
+        <defs>
+            <radialGradient id="glass-gradient" cx="50%" cy="40%" r="50%" fx="50%" fy="30%">
+                <stop offset="0%" stop-color="rgba(255, 255, 255, 0.2)" />
+                <stop offset="100%" stop-color="rgba(255, 204, 51, 0.08)" />
+            </radialGradient>
+            
+            <!-- Layered Cinematic Glows -->
+            <radialGradient id="inner-glow-grad" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#fff8e1" />
+                <stop offset="40%" stop-color="#ffcc33" />
+                <stop offset="100%" stop-color="#ffcc33" stop-opacity="0" />
+            </radialGradient>
+            
+            <radialGradient id="mid-glow-grad" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#ffcc33" stop-opacity="0.6" />
+                <stop offset="100%" stop-color="#ffcc33" stop-opacity="0" />
+            </radialGradient>
+
+            <filter id="cinematic-blur">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="10" />
+            </filter>
+        </defs>
+    </svg>
+
+    <script src="main.js"></script>
+</body>
+</html>
