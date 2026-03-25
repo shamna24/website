@@ -1114,7 +1114,7 @@ body::after {
     .contact-details-overlay {
         width: 85%;
         left: 50%;
-        top: 75%; /* Shifted up to avoid the mobile browser address bar covering the text */
+        top: 85%; 
     }
 
     .contact-info {
@@ -1144,6 +1144,7 @@ body::after {
 #contact-video-bg {
     width: 100%;
     height: 100%;
+    object-position: center bottom;
     object-fit: cover;
     pointer-events: none;
     opacity: 0;

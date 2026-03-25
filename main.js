@@ -316,7 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 } catch(e) {}
             }
             if (contactDetails) {
-                contactDetails.style.opacity = progress4 > 0.95 ? 1 : 0;
+                contactDetails.style.opacity = progress4 >= 0.999 ? 1 : 0;
             }
             workspaceBg.style.opacity = Math.max(0, 1 - (progress4 * 2));
         } else {
